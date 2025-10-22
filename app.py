@@ -12,7 +12,7 @@ except ImportError:
     pass
 
 def main():
-    """CreditCard Intel - Smart Statement Parser with modern redesigned UI improved file info visibility"""
+    """CreditCard Intel - Improved Upload Visibility & White Slip Design"""
 
     gemini_api_key = os.environ.get('GEMINI_API_KEY')
 
@@ -101,10 +101,15 @@ def main():
         }
 
         .upload-section {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            /* Gradient + shadow for white slip */
+            background: linear-gradient(
+                120deg, #e0ecff 0%, #ffffff 50%, #d0d3ff 100%
+            );
+            box-shadow: 0 7px 24px rgba(41,65,171,0.08);
+            border: 1.5px solid #dee2e6;
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
         }
@@ -115,17 +120,17 @@ def main():
         }
 
         .upload-instruction {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 3px dashed #e17055;
+            background: linear-gradient(120deg, #f8fafc 60%, #e4e7fa 100%);
+            padding: 1.7rem;
+            border-radius: 14px;
+            border: 2.5px dashed #636363;
             margin-bottom: 1.5rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(225,112,85,0.2);
+            box-shadow: 0 4px 16px rgba(41,65,171,0.07);
         }
         .upload-instruction h4 {
-            color: #d63031 !important;
-            font-size: 1.5rem;
+            color: #1b2a68 !important;
+            font-size: 1.23rem;
             font-weight: 800;
             margin: 0;
         }
@@ -149,7 +154,6 @@ def main():
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
 
-        /* Metrics - King Blue, now deeper */
         [data-testid="stMetricValue"] {
             font-size: 1.8rem;
             color: #1b2a68 !important;
@@ -169,29 +173,47 @@ def main():
             font-weight: 600;
         }
 
-        /* File uploader styling + info text dark on white slip */
+        /* File uploader: slip box always high contrast and attractive gradient background */
         [data-testid="stFileUploader"] {
-            background: rgba(255, 255, 255, 0.9) !important;
-            padding: 1.5rem;
+            padding: 1.6rem;
             border-radius: 15px;
-            border: 2px solid #dfe6e9;
+            border: 2.5px solid #b1b1b1;
+            background: linear-gradient(110deg, #e0ecff 0%, #fff 60%, #dee6ff 100%)!important;
+            box-shadow: 0 8px 32px rgba(41,65,171,0.11);
         }
         [data-testid="stFileUploader"] label {
             color: #1b2a68 !important;
             font-weight: 700 !important;
-            font-size: 1.1rem !important;
+            font-size: 1.15rem !important;
+        }
+        /* Drag and drop text always dark and bold! */
+        [data-testid="stFileUploader"] div, 
+        [data-testid="stFileUploader"] span,
+        [data-testid="stFileUploader"] strong,
+        [data-testid="stFileUploader"] p,
+        [data-testid="stFileUploader"] input {
+            color: #212529 !important;
+            font-weight: 900 !important;
+        }
+        /* "Browse files" button colored and visible */
+        [data-testid="stFileUploader"] button {
+            background: linear-gradient(120deg, #1b2a68 0%, #2941ab 100%);
+            color: #fff !important;
+            border-radius: 18px;
+            font-weight: bold !important;
+            font-size: 1.08rem !important;
+            padding: 0.7rem 1.5rem;
+            box-shadow: 0 3px 12px rgba(41,65,171,0.08);
+            border: none;
+            transition: all .16s;
+        }
+        [data-testid="stFileUploader"] button:hover {
+            background: linear-gradient(120deg, #2941ab 0%, #1b2a68 100%);
         }
         [data-testid="stFileUploader"] small {
-            color: #212529 !important;
+            color: #2a3240 !important;
             font-size: 0.95rem !important;
             font-weight: 700 !important;
-        }
-        /* File name and file size in file slip */
-        [data-testid="stFileUploader"] div, 
-        [data-testid="stFileUploader"] span, 
-        [data-testid="stFileUploader"] strong {
-            color: #212529 !important;
-            font-weight: 800 !important;
         }
 
         .main .block-container p,
@@ -212,11 +234,10 @@ def main():
             font-weight: 700;
         }
         [data-testid="stExpander"] {
-            background-color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(120deg, #f8fafc 60%, #e4e7fa 100%)!important;
             border-radius: 10px;
-            border: 1px solid #dfe6e9;
+            border: 1px solid #d5dcec;
         }
-
         .stDownloadButton button {
             background: linear-gradient(135deg, #1b2a68 0%, #2941ab 100%);
             color: white !important;
@@ -262,14 +283,8 @@ def main():
             animation: fadeInUp 0.6s ease-out;
         }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from {opacity: 0; transform: translateY(30px);}
+            to {opacity: 1; transform: translateY(0);}
         }
         </style>
     """, unsafe_allow_html=True)
