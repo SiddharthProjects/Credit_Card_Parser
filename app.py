@@ -86,21 +86,29 @@ def main():
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 1.5rem;
+            border: 3px solid #667eea;
         }
         
         .info-card h3 {
             color: #667eea !important;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
         
         .info-card h4 {
-            color: #333 !important;
-            font-weight: 600;
+            color: #2d3436 !important;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         
         .info-card p {
-            color: #555 !important;
+            color: #2d3436 !important;
+            font-weight: 600;
+        }
+        
+        .info-card .caption {
+            color: #636e72 !important;
+            font-weight: 600;
         }
         
         /* Upload section */
@@ -345,13 +353,13 @@ def main():
         col_a, col_b, col_c = st.columns(3)
         with col_a:
             st.markdown("#### 1️⃣ Upload")
-            st.caption("Upload your credit card statement PDF")
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
         with col_b:
             st.markdown("#### 2️⃣ Extract")
-            st.caption("AI analyzes and extracts key data")
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
         with col_c:
             st.markdown("#### 3️⃣ Review")
-            st.caption("View extracted information instantly")
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">View extracted information instantly</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
         
