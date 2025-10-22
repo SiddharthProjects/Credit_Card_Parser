@@ -27,9 +27,9 @@ def main():
     
     st.markdown("""
         <style>
-        /* Main background gradient */
+        /* Main background - Light blue/gray gradient */
         .stApp {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
         }
         
         /* Main content container */
@@ -39,25 +39,39 @@ def main():
             max-width: 1200px;
         }
         
+        /* Sidebar styling */
+        [data-testid="stSidebar"] {
+            background-color: #1e88e5;
+        }
+        
+        [data-testid="stSidebar"] * {
+            color: white !important;
+        }
+        
+        [data-testid="stSidebar"] hr {
+            border-color: rgba(255,255,255,0.3);
+        }
+        
         /* Header styling */
         .main-header {
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             margin-bottom: 2rem;
             text-align: center;
+            border: 3px solid #1e88e5;
         }
         
         .main-header h1 {
-            color: #667eea;
+            color: #000000 !important;
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
         }
         
         .main-header p {
-            color: #666;
+            color: #555 !important;
             font-size: 1.1rem;
         }
         
@@ -66,8 +80,13 @@ def main():
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             margin-bottom: 1.5rem;
+            border-left: 4px solid #1e88e5;
+        }
+        
+        .info-card h3, .info-card h4, .info-card p {
+            color: #333 !important;
         }
         
         /* Upload section */
@@ -77,16 +96,26 @@ def main():
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
-            border: 2px dashed #667eea;
+            border: 3px dashed #ff0000;
+        }
+        
+        .upload-section h3 {
+            color: #000000 !important;
+            font-weight: 700;
         }
         
         /* Results card */
         .results-card {
-            background: white;
+            background: #f1f8e9;
             padding: 2rem;
             border-radius: 15px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             margin-top: 2rem;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .results-card h3, .results-card h4 {
+            color: #1b5e20 !important;
         }
         
         /* Status badges */
@@ -115,7 +144,13 @@ def main():
         /* Metric cards */
         [data-testid="stMetricValue"] {
             font-size: 1.5rem;
-            color: #667eea;
+            color: #1565c0 !important;
+            font-weight: 700;
+        }
+        
+        [data-testid="stMetricLabel"] {
+            color: #424242 !important;
+            font-weight: 600;
         }
         
         /* Dataframe styling */
@@ -123,13 +158,91 @@ def main():
             border-radius: 8px;
             overflow: hidden;
         }
+        
+        /* All text in main content area */
+        .main .block-container p,
+        .main .block-container li,
+        .main .block-container span,
+        .main .block-container label {
+            color: #212121 !important;
+        }
+        
+        /* Markdown headers in main content */
+        .main .block-container h1,
+        .main .block-container h2,
+        .main .block-container h3,
+        .main .block-container h4 {
+            color: #1565c0 !important;
+        }
+        
+        /* Expander text */
+        [data-testid="stExpander"] {
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        /* Button styling */
+        .stDownloadButton button {
+            background-color: #1e88e5;
+            color: white !important;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .stDownloadButton button:hover {
+            background-color: #1565c0;
+        }
+        
+        /* File uploader text */
+        [data-testid="stFileUploader"] label {
+            color: #ff0000 !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        [data-testid="stFileUploader"] small {
+            color: #ff0000 !important;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        [data-testid="stFileUploader"] {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        [data-testid="stFileUploader"] > div {
+            background: white !important;
+        }
+        
+        [data-testid="stFileUploader"] span {
+            color: #ff0000 !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+        }
+        
+        /* File uploader drag area */
+        [data-testid="stFileUploader"] button {
+            background: white !important;
+            color: #ff0000 !important;
+            border: 2px solid #ff0000 !important;
+        }
+        
+        /* Spinner text */
+        .stSpinner > div {
+            color: #1e88e5 !important;
+        }
         </style>
     """, unsafe_allow_html=True)
     
     
     with st.sidebar:
+        st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
         st.image("https://cdn-icons-png.flaticon.com/512/2830/2830284.png", width=100)
-        st.title("🧠 CreditCard Intel")
+        st.markdown('<h1 style="color: white !important; font-size: 1.8rem; margin-top: 0.5rem;">🧠 CreditCard Intel</h1>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("---")
         
         st.subheader("📋 Supported Banks")
@@ -158,7 +271,7 @@ def main():
         """)
         
         st.markdown("---")
-        st.caption("v1.0.0 | Built with ❤️ and by SIDDHARTH SRIVASTAVA")
+        st.caption("v1.0.0 | Built with ❤️ by SIDDHARTH SRIVASTAVA")
     
     
     col1, col2, col3 = st.columns([1, 6, 1])
@@ -191,8 +304,18 @@ def main():
         
         st.markdown('<div class="upload-section">', unsafe_allow_html=True)
         st.markdown("### 📤 Upload Your Statement")
+        st.markdown("""
+            <div style="background: white; padding: 2rem; border: 3px dashed #ff0000; border-radius: 10px; text-align: center; margin-bottom: 1rem;">
+                <p style="color: #ff0000; font-weight: 700; font-size: 1.3rem; margin: 0;">
+                    📄 Drag and drop your PDF here or click Browse below
+                </p>
+                <p style="color: #ff0000; font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
+                    Maximum file size: 200MB • Format: PDF only
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
         uploaded_file = st.file_uploader(
-            "Drop your PDF here or click to browse",
+            "Choose a PDF file",
             type="pdf",
             help="Upload a credit card statement from supported banks"
         )
