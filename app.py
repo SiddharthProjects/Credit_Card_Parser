@@ -16,14 +16,12 @@ def main():
     
     gemini_api_key = os.environ.get('GEMINI_API_KEY')
     
-    
     st.set_page_config(
         page_title="CreditCard Intel",
         page_icon="🧠",
         layout="wide",
         initial_sidebar_state="expanded"
     )
-    
     
     st.markdown("""
         <style>
@@ -44,8 +42,9 @@ def main():
             background: linear-gradient(180deg, #5f27cd 0%, #341f97 100%);
         }
         
+        /* Keep sidebar text white */
         [data-testid="stSidebar"] * {
-            color: #ffffff !important;
+            color: #f8f9fa !important;
         }
         
         [data-testid="stSidebar"] hr {
@@ -106,8 +105,8 @@ def main():
         }
         
         .info-card p {
-            color: #495057 !important;
-            font-weight: 600;
+            color: #212529 !important; /* Darker text */
+            font-weight: 700;
             font-size: 1rem;
             line-height: 1.6;
         }
@@ -188,7 +187,7 @@ def main():
         }
         
         [data-testid="stMetricLabel"] {
-            color: #6c757d !important;
+            color: #343a40 !important; /* Darker label */
             font-weight: 700;
             font-size: 1rem;
         }
@@ -198,6 +197,8 @@ def main():
             border-radius: 10px;
             overflow: hidden;
             font-size: 0.95rem;
+            color: #212529 !important; /* Dark text */
+            font-weight: 600;
         }
         
         /* File uploader styling */
@@ -225,20 +226,21 @@ def main():
         .main .block-container li,
         .main .block-container span,
         .main .block-container label {
-            color: #495057 !important;
+            color: #212529 !important; /* Darker text */
+            font-weight: 700;
         }
         
         /* Markdown headers */
         .main .block-container h1,
         .main .block-container h2 {
-            color: #667eea !important;
-            font-weight: 700;
+            color: #1b1e21 !important; /* Very dark */
+            font-weight: 800;
         }
         
         .main .block-container h3,
         .main .block-container h4 {
-            color: #495057 !important;
-            font-weight: 600;
+            color: #343a40 !important; /* Dark gray */
+            font-weight: 700;
         }
         
         /* Expander */
@@ -272,25 +274,31 @@ def main():
             font-weight: 600;
         }
         
-        /* Success/Error messages */
+        /* Success/Error messages - stronger contrast */
         .stSuccess {
-            background-color: #d4edda !important;
+            background-color: #c3e6cb !important;
             color: #155724 !important;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 10px;
         }
         
         .stError {
-            background-color: #f8d7da !important;
+            background-color: #f5c6cb !important;
             color: #721c24 !important;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 10px;
         }
         
         /* Column text */
         [data-testid="column"] p {
-            color: #495057 !important;
-            font-weight: 600;
+            color: #212529 !important;
+            font-weight: 700;
+        }
+        
+        /* Raw text area */
+        textarea, .stTextArea, .stTextArea > div, .stTextArea textarea {
+            color: #212529 !important;
+            font-weight: 700;
         }
         
         /* Smooth animations */
@@ -310,7 +318,6 @@ def main():
         }
         </style>
     """, unsafe_allow_html=True)
-    
     
     with st.sidebar:
         st.markdown('<div style="text-align: center; padding: 1rem 0;">', unsafe_allow_html=True)
@@ -347,7 +354,6 @@ def main():
         st.markdown("---")
         st.caption("v1.0.0 | Built with ❤️ by SIDDHARTH SRIVASTAVA")
     
-    
     col1, col2, col3 = st.columns([1, 6, 1])
     
     with col2:
@@ -359,22 +365,20 @@ def main():
             </div>
         """, unsafe_allow_html=True)
         
-        
         st.markdown('<div class="info-card">', unsafe_allow_html=True)
         st.markdown("### 🎯 How It Works")
         
         col_a, col_b, col_c = st.columns(3)
         with col_a:
             st.markdown("#### 1️⃣ Upload")
-            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">Upload your credit card statement PDF file</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212529 !important; font-weight: 700; font-size: 1rem; line-height: 1.5;">Upload your credit card statement PDF file</p>', unsafe_allow_html=True)
         with col_b:
             st.markdown("#### 2️⃣ Extract")
-            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">AI analyzes and extracts key information</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212529 !important; font-weight: 700; font-size: 1rem; line-height: 1.5;">AI analyzes and extracts key information</p>', unsafe_allow_html=True)
         with col_c:
             st.markdown("#### 3️⃣ Review")
-            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">View and download extracted data instantly</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212529 !important; font-weight: 700; font-size: 1rem; line-height: 1.5;">View and download extracted data instantly</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
-        
         
         st.markdown('<div class="upload-section">', unsafe_allow_html=True)
         st.markdown("### 📤 Upload Your Statement")
@@ -393,7 +397,6 @@ def main():
         )
         st.markdown('</div>', unsafe_allow_html=True)
         
-        
         if uploaded_file:
             with st.spinner('🔍 Analyzing your statement...'):
                 bytes_data = io.BytesIO(uploaded_file.getvalue())
@@ -404,7 +407,6 @@ def main():
             if results.get("status") == "SUCCESS":
                 bank_name = results.get('bank_name', 'N/A')
                 method = results.get('extraction_method', 'RegEx')
-                
                 
                 st.markdown("### ✅ Extraction Successful!")
                 
@@ -419,7 +421,6 @@ def main():
                     st.metric("AI Status", f"{status_color} {llm_status}")
                 
                 st.markdown("---")
-                
                 
                 st.markdown("### 💳 Extracted Information")
                 
@@ -451,7 +452,6 @@ def main():
                     total_due = results.get("total_due", "NOT_FOUND")
                     min_payment = results.get("min_payment", "NOT_FOUND")
                     
-                    
                     if total_due != "NOT_FOUND":
                         st.metric("Total Amount Due", f"₹ {total_due}", delta=None)
                     else:
@@ -462,8 +462,8 @@ def main():
                     else:
                         st.metric("Minimum Payment", "NOT_FOUND", delta=None)
                 
-                
                 st.markdown("---")
+                
                 st.markdown("### 📊 Complete Data Overview")
                 
                 complete_data = {
@@ -492,7 +492,6 @@ def main():
                 
                 df_complete = pd.DataFrame(complete_data)
                 
-                
                 def highlight_status(row):
                     if row['Status'] == "❌ Missing":
                         return ['background-color: #fee; color: #c00; font-weight: 600'] * len(row)
@@ -505,11 +504,9 @@ def main():
                     use_container_width=True
                 )
                 
-                
                 if 'raw_text' in results:
                     with st.expander("🔍 View Raw Extracted Text (Debug)"):
                         st.text_area("Raw Text", results['raw_text'], height=300, label_visibility="collapsed")
-                
                 
                 st.markdown("---")
                 csv_data = df_complete.to_csv(index=False)
@@ -521,7 +518,6 @@ def main():
                 )
                 
             else:
-                
                 st.markdown("### ❌ Extraction Failed")
                 st.error(f"**Reason:** {results.get('reason', 'Unknown error occurred.')}")
                 
