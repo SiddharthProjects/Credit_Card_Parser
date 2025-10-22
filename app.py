@@ -12,46 +12,39 @@ except ImportError:
     pass
 
 def main():
-    """CreditCard Intel - Smart Statement Parser with modern redesigned UI, improved dark blue text visibility"""
-    
+    """CreditCard Intel - Smart Statement Parser with modern redesigned UI improved file info visibility"""
+
     gemini_api_key = os.environ.get('GEMINI_API_KEY')
-    
+
     st.set_page_config(
         page_title="CreditCard Intel",
         page_icon="🧠",
         layout="wide",
         initial_sidebar_state="expanded"
     )
-    
+
     st.markdown("""
         <style>
-        /* Main background remains elegant */
         .stApp {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
-        /* Main content container */
         .main .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
             max-width: 1200px;
         }
 
-        /* Sidebar styling - Deep Purple */
         [data-testid="stSidebar"] {
             background: linear-gradient(180deg, #5f27cd 0%, #341f97 100%);
         }
-
-        /* Keep sidebar text white */
         [data-testid="stSidebar"] * {
             color: #f8f9fa !important;
         }
-
         [data-testid="stSidebar"] hr {
             border-color: rgba(255,255,255,0.3);
         }
 
-        /* Header styling - Elegant and Compact */
         .main-header {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             padding: 2.5rem 2rem;
@@ -62,19 +55,15 @@ def main():
             border: 1px solid rgba(255,255,255,0.3);
         }
 
-        /* Dark blue for major headings! */
         .main-header h1,
         .info-card h3, .results-card h3,
         .main .block-container h1, .main .block-container h2 {
             background: none;
-            color: #1b2a68 !important; /* Deep dark blue */
+            color: #1b2a68 !important;
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 0.3rem;
             letter-spacing: 1px;
-            -webkit-background-clip: none;
-            -webkit-text-fill-color: unset;
-            background-clip: none;
         }
 
         .main-header p {
@@ -84,7 +73,6 @@ def main():
             margin-top: 0.5rem;
         }
 
-        /* Card styling - Clean White */
         .info-card {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
@@ -93,30 +81,25 @@ def main():
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
         }
-
-        /* Dark Blue Headings in Cards */
         .info-card h3, .upload-section h3, .results-card h3  {
             color: #1b2a68 !important;
             font-weight: 700;
             font-size: 1.6rem;
             margin-bottom: 1.5rem;
         }
-
         .info-card h4, .results-card h4 {
             color: #2941ab !important;
             font-weight: 700;
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
-
         .info-card p {
-            color: #212529 !important; /* Darker text */
+            color: #212529 !important;
             font-weight: 700;
             font-size: 1rem;
             line-height: 1.6;
         }
 
-        /* Upload section - Elegant */
         .upload-section {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
@@ -125,14 +108,12 @@ def main():
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
         }
-
         .upload-section h3 {
             color: #1b2a68 !important;
             font-weight: 700;
             font-size: 1.6rem;
         }
 
-        /* Custom upload instruction box */
         .upload-instruction {
             background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
             padding: 2rem;
@@ -142,22 +123,19 @@ def main():
             text-align: center;
             box-shadow: 0 5px 15px rgba(225,112,85,0.2);
         }
-
         .upload-instruction h4 {
             color: #d63031 !important;
             font-size: 1.5rem;
             font-weight: 800;
             margin: 0;
         }
-
         .upload-instruction p {
-            color: #212529 !important; /* Make darker */
+            color: #212529 !important;
             font-size: 1rem;
             font-weight: 700;
             margin: 0.5rem 0 0 0;
         }
 
-        /* Results card - Success Green */
         .results-card {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
@@ -168,10 +146,9 @@ def main():
             backdrop-filter: blur(10px);
         }
 
-        /* Hide streamlit branding */
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
-        
+
         /* Metrics - King Blue, now deeper */
         [data-testid="stMetricValue"] {
             font-size: 1.8rem;
@@ -184,65 +161,62 @@ def main():
             font-size: 1rem;
         }
 
-        /* Dataframe text - dark */
         .dataframe {
             border-radius: 10px;
             overflow: hidden;
             font-size: 0.95rem;
-            color: #212529 !important; /* Dark text */
+            color: #212529 !important;
             font-weight: 600;
         }
 
-        /* File uploader styling */
+        /* File uploader styling + info text dark on white slip */
         [data-testid="stFileUploader"] {
             background: rgba(255, 255, 255, 0.9) !important;
             padding: 1.5rem;
             border-radius: 15px;
             border: 2px solid #dfe6e9;
         }
-
         [data-testid="stFileUploader"] label {
-            color: #1b2a68 !important; /* Deep blue for labels */
+            color: #1b2a68 !important;
             font-weight: 700 !important;
             font-size: 1.1rem !important;
         }
-
         [data-testid="stFileUploader"] small {
-            color: #636e72 !important;
+            color: #212529 !important;
             font-size: 0.95rem !important;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
+        }
+        /* File name and file size in file slip */
+        [data-testid="stFileUploader"] div, 
+        [data-testid="stFileUploader"] span, 
+        [data-testid="stFileUploader"] strong {
+            color: #212529 !important;
+            font-weight: 800 !important;
         }
 
-        /* All text in main content */
         .main .block-container p,
         .main .block-container li,
         .main .block-container span,
         .main .block-container label {
-            color: #212529 !important; /* Darker text */
+            color: #212529 !important;
             font-weight: 700;
         }
-
-        /* Markdown headers */
         .main .block-container h1,
         .main .block-container h2 {
-            color: #1b2a68 !important; /* Very dark blue for core headings */
+            color: #1b2a68 !important;
             font-weight: 800;
         }
-
         .main .block-container h3,
         .main .block-container h4 {
-            color: #2941ab !important; /* Deep blue for subheadings */
+            color: #2941ab !important;
             font-weight: 700;
         }
-
-        /* Expander */
         [data-testid="stExpander"] {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             border: 1px solid #dfe6e9;
         }
 
-        /* Button styling - Deeper gradient */
         .stDownloadButton button {
             background: linear-gradient(135deg, #1b2a68 0%, #2941ab 100%);
             color: white !important;
@@ -259,13 +233,10 @@ def main():
             box-shadow: 0 8px 20px rgba(41, 65, 171, 0.45);
         }
 
-        /* Spinner */
         .stSpinner > div {
             color: #2941ab !important;
             font-weight: 700;
         }
-        
-        /* Success/Error messages - stronger contrast */
         .stSuccess {
             background-color: #c3e6cb !important;
             color: #155724 !important;
@@ -278,24 +249,18 @@ def main():
             font-weight: 700;
             border-radius: 10px;
         }
-
-        /* Column text */
         [data-testid="column"] p {
             color: #212529 !important;
             font-weight: 700;
         }
-
-        /* Raw text area */
         textarea, .stTextArea, .stTextArea > div, .stTextArea textarea {
             color: #212529 !important;
             font-weight: 700;
         }
 
-        /* Smooth animations */
         .info-card, .upload-section, .results-card, .main-header {
             animation: fadeInUp 0.6s ease-out;
         }
-        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
