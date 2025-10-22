@@ -27,9 +27,9 @@ def main():
     
     st.markdown("""
         <style>
-        /* Main background gradient - Lighter and cleaner */
+        /* Main background - Clean white */
         .stApp {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #ffffff;
         }
         
         /* Main content container */
@@ -39,136 +39,137 @@ def main():
             max-width: 1200px;
         }
         
-        /* Sidebar styling */
+        /* Sidebar styling - Dark Navy */
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            background: #1a1a2e;
         }
         
         [data-testid="stSidebar"] * {
-            color: white !important;
+            color: #ffffff !important;
         }
         
         [data-testid="stSidebar"] hr {
-            border-color: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.2);
         }
         
-        /* Header styling */
+        /* Header styling - Bold Dark Blue */
         .main-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0f3460;
             padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             margin-bottom: 2rem;
             text-align: center;
-            border: 4px solid white;
+            border: 5px solid #16213e;
         }
         
         .main-header h1 {
-            color: white !important;
-            font-size: 3.5rem;
+            color: #ffffff !important;
+            font-size: 4rem;
             font-weight: 900;
             margin-bottom: 0.5rem;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         
         .main-header p {
-            color: white !important;
-            font-size: 1.5rem;
-            font-weight: 600;
+            color: #e4e4e4 !important;
+            font-size: 1.6rem;
+            font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* Card styling */
+        /* Card styling - Light Gray Background */
         .info-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-            border: 3px solid #667eea;
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border: 3px solid #0f3460;
         }
         
         .info-card h3 {
-            color: #667eea !important;
-            font-weight: 700;
-            font-size: 1.8rem;
+            color: #0f3460 !important;
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .info-card h4 {
-            color: #2d3436 !important;
+            color: #16213e !important;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
         
         .info-card p {
             color: #2d3436 !important;
             font-weight: 600;
+            font-size: 1.1rem;
         }
         
-        .info-card .caption {
-            color: #636e72 !important;
-            font-weight: 600;
-        }
-        
-        /* Upload section */
+        /* Upload section - Bright Yellow */
         .upload-section {
-            background: white;
+            background: #fff8e1;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             margin-bottom: 2rem;
-            border: 3px solid #667eea;
+            border: 4px solid #f39c12;
         }
         
         .upload-section h3 {
-            color: #667eea !important;
-            font-weight: 700;
-            font-size: 1.8rem;
+            color: #e67e22 !important;
+            font-weight: 800;
+            font-size: 2rem;
         }
         
-        /* Custom upload instruction box */
+        /* Custom upload instruction box - Bright Orange/Red */
         .upload-instruction {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 2rem;
+            background: #ffe0b2;
+            padding: 2.5rem;
             border-radius: 12px;
-            border: 3px dashed #d63031;
+            border: 4px dashed #d35400;
             margin-bottom: 1.5rem;
             text-align: center;
         }
         
         .upload-instruction h4 {
-            color: #d63031 !important;
-            font-size: 1.5rem;
-            font-weight: 800;
+            color: #c0392b !important;
+            font-size: 1.8rem;
+            font-weight: 900;
             margin: 0;
+            text-transform: uppercase;
         }
         
         .upload-instruction p {
-            color: #2d3436 !important;
-            font-size: 1.1rem;
-            font-weight: 600;
+            color: #16213e !important;
+            font-size: 1.2rem;
+            font-weight: 700;
             margin: 0.5rem 0 0 0;
         }
         
-        /* Results card */
+        /* Results card - Light Green */
         .results-card {
-            background: white;
-            padding: 2rem;
+            background: #e8f5e9;
+            padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             margin-top: 2rem;
-            border-left: 6px solid #00b894;
+            border: 4px solid #27ae60;
         }
         
         .results-card h3 {
-            color: #00b894 !important;
-            font-weight: 700;
+            color: #27ae60 !important;
+            font-weight: 800;
+            font-size: 2rem;
         }
         
         .results-card h4 {
-            color: #2d3436 !important;
-            font-weight: 600;
+            color: #16213e !important;
+            font-weight: 700;
+            font-size: 1.4rem;
         }
         
         /* Status badges */
@@ -194,43 +195,48 @@ def main():
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         
-        /* Metric cards */
+        /* Metric cards - Bold and Clear */
         [data-testid="stMetricValue"] {
-            font-size: 1.8rem;
-            color: #667eea !important;
-            font-weight: 800;
+            font-size: 2rem;
+            color: #0f3460 !important;
+            font-weight: 900;
         }
         
         [data-testid="stMetricLabel"] {
-            color: #2d3436 !important;
-            font-weight: 700;
-            font-size: 1.1rem;
+            color: #16213e !important;
+            font-weight: 800;
+            font-size: 1.2rem;
         }
         
         /* Dataframe styling */
         .dataframe {
             border-radius: 8px;
             overflow: hidden;
+            font-size: 1.05rem;
         }
         
-        /* File uploader styling */
+        /* File uploader styling - White with Dark Border */
         [data-testid="stFileUploader"] {
-            background: white !important;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 2px solid #dfe6e9;
+            background: #ffffff !important;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 3px solid #16213e;
         }
         
         [data-testid="stFileUploader"] label {
-            color: #2d3436 !important;
-            font-weight: 700 !important;
-            font-size: 1.2rem !important;
+            color: #16213e !important;
+            font-weight: 800 !important;
+            font-size: 1.3rem !important;
         }
         
         [data-testid="stFileUploader"] small {
-            color: #636e72 !important;
-            font-size: 1rem !important;
-            font-weight: 600 !important;
+            color: #2d3436 !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+        }
+        
+        [data-testid="stFileUploader"] section {
+            background-color: #ffffff !important;
         }
         
         /* All text in main content area */
@@ -244,55 +250,65 @@ def main():
         /* Markdown headers in main content */
         .main .block-container h1,
         .main .block-container h2 {
-            color: #667eea !important;
-            font-weight: 700;
+            color: #0f3460 !important;
+            font-weight: 800;
         }
         
         .main .block-container h3,
         .main .block-container h4 {
-            color: #2d3436 !important;
-            font-weight: 600;
+            color: #16213e !important;
+            font-weight: 700;
         }
         
         /* Expander text */
         [data-testid="stExpander"] {
             background-color: #f8f9fa;
             border-radius: 8px;
-            border: 1px solid #dfe6e9;
+            border: 2px solid #0f3460;
         }
         
-        /* Button styling */
+        /* Button styling - Bold Blue */
         .stDownloadButton button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0f3460;
             color: white !important;
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 1.2rem;
             border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
         }
         
         .stDownloadButton button:hover {
+            background: #16213e;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 15px rgba(15, 52, 96, 0.4);
         }
         
         /* Spinner text */
         .stSpinner > div {
-            color: #667eea !important;
-            font-weight: 600;
+            color: #0f3460 !important;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
         
         /* Success/Error messages */
         .stSuccess {
             background-color: #d4edda !important;
             color: #155724 !important;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
         
         .stError {
             background-color: #f8d7da !important;
             color: #721c24 !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Column text styling */
+        [data-testid="column"] p {
+            color: #2d3436 !important;
             font-weight: 600;
         }
         </style>
@@ -302,7 +318,7 @@ def main():
     with st.sidebar:
         st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
         st.image("https://cdn-icons-png.flaticon.com/512/2830/2830284.png", width=100)
-        st.markdown('<h1 style="font-size: 1.8rem; margin-top: 0.5rem;">🧠 CreditCard Intel</h1>', unsafe_allow_html=True)
+        st.markdown('<h1 style="font-size: 2rem; margin-top: 0.5rem; font-weight: 800;">🧠 CreditCard Intel</h1>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("---")
         
@@ -341,7 +357,7 @@ def main():
         
         st.markdown("""
             <div class="main-header">
-                <h1>🧠 CreditCard Intel</h1>
+                <h1>🧠 CREDITCARD INTEL</h1>
                 <p>Smart CreditCard Statement Parser</p>
             </div>
         """, unsafe_allow_html=True)
@@ -353,13 +369,13 @@ def main():
         col_a, col_b, col_c = st.columns(3)
         with col_a:
             st.markdown("#### 1️⃣ Upload")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
         with col_b:
             st.markdown("#### 2️⃣ Extract")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
         with col_c:
             st.markdown("#### 3️⃣ Review")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 600; font-size: 1.05rem;">View extracted information instantly</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">View extracted information instantly</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
         
