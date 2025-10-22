@@ -420,7 +420,7 @@ def main():
         st.markdown("""
             <div class="main-header">
                 <h1>🧠 CreditCard Intel</h1>
-                <p>Smart Statement Parser Powered by AI</p>
+                <p>Smart Statement Parser</p>
             </div>
         """, unsafe_allow_html=True)
         
@@ -596,3 +596,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
