@@ -27,9 +27,9 @@ def main():
     
     st.markdown("""
         <style>
-        /* Main background - Clean white */
+        /* Main background - Light Blue Gradient */
         .stApp {
-            background: #ffffff;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
         }
         
         /* Main content container */
@@ -39,9 +39,9 @@ def main():
             max-width: 1200px;
         }
         
-        /* Sidebar styling - Dark Navy */
+        /* Sidebar styling - Deep Blue */
         [data-testid="stSidebar"] {
-            background: #1a1a2e;
+            background: linear-gradient(180deg, #1565c0 0%, #0d47a1 100%);
         }
         
         [data-testid="stSidebar"] * {
@@ -49,18 +49,18 @@ def main():
         }
         
         [data-testid="stSidebar"] hr {
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
         }
         
-        /* Header styling - Bold Dark Blue */
+        /* Header styling - Rich Blue with White Text */
         .main-header {
-            background: #0f3460;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             margin-bottom: 2rem;
             text-align: center;
-            border: 5px solid #16213e;
+            border: 5px solid #0d47a1;
         }
         
         .main-header h1 {
@@ -68,106 +68,106 @@ def main():
             font-size: 4rem;
             font-weight: 900;
             margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
             letter-spacing: 3px;
         }
         
         .main-header p {
-            color: #e4e4e4 !important;
+            color: #ffffff !important;
             font-size: 1.6rem;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* Card styling - Light Gray Background */
+        /* Card styling - White Background with Blue Border */
         .info-card {
-            background: #f8f9fa;
+            background: #ffffff;
             padding: 2.5rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             margin-bottom: 2rem;
-            border: 3px solid #0f3460;
+            border: 4px solid #1976d2;
         }
         
         .info-card h3 {
-            color: #0f3460 !important;
+            color: #1565c0 !important;
             font-weight: 800;
             font-size: 2rem;
             margin-bottom: 1.5rem;
         }
         
         .info-card h4 {
-            color: #16213e !important;
+            color: #0d47a1 !important;
             font-weight: 700;
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
         
         .info-card p {
-            color: #2d3436 !important;
-            font-weight: 600;
+            color: #212121 !important;
+            font-weight: 700;
             font-size: 1.1rem;
         }
         
-        /* Upload section - Bright Yellow */
+        /* Upload section - White Background */
         .upload-section {
-            background: #fff8e1;
+            background: #ffffff;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             margin-bottom: 2rem;
-            border: 4px solid #f39c12;
+            border: 4px solid #42a5f5;
         }
         
         .upload-section h3 {
-            color: #e67e22 !important;
+            color: #1565c0 !important;
             font-weight: 800;
             font-size: 2rem;
         }
         
-        /* Custom upload instruction box - Bright Orange/Red */
+        /* Custom upload instruction box - Bright Attention Color */
         .upload-instruction {
-            background: #ffe0b2;
+            background: #fff9c4;
             padding: 2.5rem;
             border-radius: 12px;
-            border: 4px dashed #d35400;
+            border: 5px dashed #f57c00;
             margin-bottom: 1.5rem;
             text-align: center;
         }
         
         .upload-instruction h4 {
-            color: #c0392b !important;
-            font-size: 1.8rem;
+            color: #d84315 !important;
+            font-size: 2rem;
             font-weight: 900;
             margin: 0;
             text-transform: uppercase;
         }
         
         .upload-instruction p {
-            color: #16213e !important;
+            color: #212121 !important;
             font-size: 1.2rem;
             font-weight: 700;
             margin: 0.5rem 0 0 0;
         }
         
-        /* Results card - Light Green */
+        /* Results card - White with Green Accent */
         .results-card {
-            background: #e8f5e9;
+            background: #ffffff;
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             margin-top: 2rem;
-            border: 4px solid #27ae60;
+            border: 4px solid #66bb6a;
         }
         
         .results-card h3 {
-            color: #27ae60 !important;
+            color: #388e3c !important;
             font-weight: 800;
             font-size: 2rem;
         }
         
         .results-card h4 {
-            color: #16213e !important;
+            color: #0d47a1 !important;
             font-weight: 700;
             font-size: 1.4rem;
         }
@@ -182,28 +182,28 @@ def main():
         }
         
         .badge-success {
-            background: #d4edda;
-            color: #155724;
+            background: #c8e6c9;
+            color: #2e7d32;
         }
         
         .badge-warning {
-            background: #fff3cd;
-            color: #856404;
+            background: #fff9c4;
+            color: #f57f17;
         }
         
         /* Hide streamlit branding */
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         
-        /* Metric cards - Bold and Clear */
+        /* Metric cards - Bold Blue */
         [data-testid="stMetricValue"] {
             font-size: 2rem;
-            color: #0f3460 !important;
+            color: #1565c0 !important;
             font-weight: 900;
         }
         
         [data-testid="stMetricLabel"] {
-            color: #16213e !important;
+            color: #0d47a1 !important;
             font-weight: 800;
             font-size: 1.2rem;
         }
@@ -215,22 +215,22 @@ def main():
             font-size: 1.05rem;
         }
         
-        /* File uploader styling - White with Dark Border */
+        /* File uploader styling - White Background */
         [data-testid="stFileUploader"] {
             background: #ffffff !important;
             padding: 2rem;
             border-radius: 12px;
-            border: 3px solid #16213e;
+            border: 3px solid #1976d2;
         }
         
         [data-testid="stFileUploader"] label {
-            color: #16213e !important;
+            color: #0d47a1 !important;
             font-weight: 800 !important;
             font-size: 1.3rem !important;
         }
         
         [data-testid="stFileUploader"] small {
-            color: #2d3436 !important;
+            color: #212121 !important;
             font-size: 1.1rem !important;
             font-weight: 700 !important;
         }
@@ -239,37 +239,37 @@ def main():
             background-color: #ffffff !important;
         }
         
-        /* All text in main content area */
+        /* All text in main content area - Dark for Visibility */
         .main .block-container p,
         .main .block-container li,
         .main .block-container span,
         .main .block-container label {
-            color: #2d3436 !important;
+            color: #212121 !important;
         }
         
         /* Markdown headers in main content */
         .main .block-container h1,
         .main .block-container h2 {
-            color: #0f3460 !important;
+            color: #1565c0 !important;
             font-weight: 800;
         }
         
         .main .block-container h3,
         .main .block-container h4 {
-            color: #16213e !important;
+            color: #0d47a1 !important;
             font-weight: 700;
         }
         
         /* Expander text */
         [data-testid="stExpander"] {
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             border-radius: 8px;
-            border: 2px solid #0f3460;
+            border: 2px solid #1976d2;
         }
         
-        /* Button styling - Bold Blue */
+        /* Button styling - Blue Gradient */
         .stDownloadButton button {
-            background: #0f3460;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             color: white !important;
             font-weight: 800;
             font-size: 1.2rem;
@@ -279,37 +279,37 @@ def main():
         }
         
         .stDownloadButton button:hover {
-            background: #16213e;
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(15, 52, 96, 0.4);
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.4);
         }
         
         /* Spinner text */
         .stSpinner > div {
-            color: #0f3460 !important;
+            color: #1565c0 !important;
             font-weight: 700;
             font-size: 1.2rem;
         }
         
         /* Success/Error messages */
         .stSuccess {
-            background-color: #d4edda !important;
-            color: #155724 !important;
+            background-color: #c8e6c9 !important;
+            color: #2e7d32 !important;
             font-weight: 700;
             font-size: 1.1rem;
         }
         
         .stError {
-            background-color: #f8d7da !important;
-            color: #721c24 !important;
+            background-color: #ffcdd2 !important;
+            color: #c62828 !important;
             font-weight: 700;
             font-size: 1.1rem;
         }
         
         /* Column text styling */
         [data-testid="column"] p {
-            color: #2d3436 !important;
-            font-weight: 600;
+            color: #212121 !important;
+            font-weight: 700;
         }
         </style>
     """, unsafe_allow_html=True)
@@ -369,13 +369,13 @@ def main():
         col_a, col_b, col_c = st.columns(3)
         with col_a:
             st.markdown("#### 1️⃣ Upload")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
         with col_b:
             st.markdown("#### 2️⃣ Extract")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
         with col_c:
             st.markdown("#### 3️⃣ Review")
-            st.markdown('<p style="color: #2d3436 !important; font-weight: 700; font-size: 1.1rem;">View extracted information instantly</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">View extracted information instantly</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
         
@@ -498,9 +498,9 @@ def main():
                 
                 def highlight_status(row):
                     if row['Status'] == "❌ Missing":
-                        return ['background-color: #fee; color: #c00'] * len(row)
+                        return ['background-color: #ffcdd2; color: #c62828; font-weight: 700'] * len(row)
                     else:
-                        return ['background-color: #efe; color: #060'] * len(row)
+                        return ['background-color: #c8e6c9; color: #2e7d32; font-weight: 700'] * len(row)
                 
                 st.dataframe(
                     df_complete.style.apply(highlight_status, axis=1),
