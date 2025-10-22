@@ -27,9 +27,9 @@ def main():
     
     st.markdown("""
         <style>
-        /* Main background - Light Blue Gradient */
+        /* Main background - Elegant Gradient */
         .stApp {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
         /* Main content container */
@@ -39,9 +39,9 @@ def main():
             max-width: 1200px;
         }
         
-        /* Sidebar styling - Deep Blue */
+        /* Sidebar styling - Deep Purple */
         [data-testid="stSidebar"] {
-            background: linear-gradient(180deg, #1565c0 0%, #0d47a1 100%);
+            background: linear-gradient(180deg, #5f27cd 0%, #341f97 100%);
         }
         
         [data-testid="stSidebar"] * {
@@ -52,273 +52,270 @@ def main():
             border-color: rgba(255,255,255,0.3);
         }
         
-        /* Header styling - Rich Blue with White Text */
+        /* Header styling - Elegant and Compact */
         .main-header {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             margin-bottom: 2rem;
             text-align: center;
-            border: 5px solid #0d47a1;
+            border: 1px solid rgba(255,255,255,0.3);
         }
         
         .main-header h1 {
-            color: #ffffff !important;
-            font-size: 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
             font-weight: 900;
-            margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-            letter-spacing: 3px;
+            margin-bottom: 0.3rem;
+            letter-spacing: 1px;
         }
         
         .main-header p {
-            color: #ffffff !important;
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #6c757d !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
         }
         
-        /* Card styling - White Background with Blue Border */
+        /* Card styling - Clean White */
         .info-card {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
-            border: 4px solid #1976d2;
+            backdrop-filter: blur(10px);
         }
         
         .info-card h3 {
-            color: #1565c0 !important;
-            font-weight: 800;
-            font-size: 2rem;
+            color: #667eea !important;
+            font-weight: 700;
+            font-size: 1.6rem;
             margin-bottom: 1.5rem;
         }
         
         .info-card h4 {
-            color: #0d47a1 !important;
+            color: #764ba2 !important;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
         
         .info-card p {
-            color: #212121 !important;
-            font-weight: 700;
-            font-size: 1.1rem;
+            color: #495057 !important;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.6;
         }
         
-        /* Upload section - White Background */
+        /* Upload section - Elegant */
         .upload-section {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
-            border: 4px solid #42a5f5;
+            backdrop-filter: blur(10px);
         }
         
         .upload-section h3 {
-            color: #1565c0 !important;
-            font-weight: 800;
-            font-size: 2rem;
+            color: #667eea !important;
+            font-weight: 700;
+            font-size: 1.6rem;
         }
         
-        /* Custom upload instruction box - Bright Attention Color */
+        /* Custom upload instruction box */
         .upload-instruction {
-            background: #fff9c4;
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 5px dashed #f57c00;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 3px dashed #e17055;
             margin-bottom: 1.5rem;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(225,112,85,0.2);
         }
         
         .upload-instruction h4 {
-            color: #d84315 !important;
-            font-size: 2rem;
-            font-weight: 900;
+            color: #d63031 !important;
+            font-size: 1.5rem;
+            font-weight: 800;
             margin: 0;
-            text-transform: uppercase;
         }
         
         .upload-instruction p {
-            color: #212121 !important;
-            font-size: 1.2rem;
-            font-weight: 700;
+            color: #2d3436 !important;
+            font-size: 1rem;
+            font-weight: 600;
             margin: 0.5rem 0 0 0;
         }
         
-        /* Results card - White with Green Accent */
+        /* Results card - Success Green */
         .results-card {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin-top: 2rem;
-            border: 4px solid #66bb6a;
+            border-left: 5px solid #00b894;
+            backdrop-filter: blur(10px);
         }
         
         .results-card h3 {
-            color: #388e3c !important;
-            font-weight: 800;
-            font-size: 2rem;
+            color: #00b894 !important;
+            font-weight: 700;
+            font-size: 1.6rem;
         }
         
         .results-card h4 {
-            color: #0d47a1 !important;
+            color: #667eea !important;
             font-weight: 700;
-            font-size: 1.4rem;
-        }
-        
-        /* Status badges */
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin: 0.5rem;
-        }
-        
-        .badge-success {
-            background: #c8e6c9;
-            color: #2e7d32;
-        }
-        
-        .badge-warning {
-            background: #fff9c4;
-            color: #f57f17;
+            font-size: 1.3rem;
         }
         
         /* Hide streamlit branding */
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         
-        /* Metric cards - Bold Blue */
+        /* Metric cards - Elegant */
         [data-testid="stMetricValue"] {
-            font-size: 2rem;
-            color: #1565c0 !important;
-            font-weight: 900;
+            font-size: 1.8rem;
+            color: #667eea !important;
+            font-weight: 800;
         }
         
         [data-testid="stMetricLabel"] {
-            color: #0d47a1 !important;
-            font-weight: 800;
-            font-size: 1.2rem;
+            color: #6c757d !important;
+            font-weight: 700;
+            font-size: 1rem;
         }
         
         /* Dataframe styling */
         .dataframe {
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
         }
         
-        /* File uploader styling - White Background */
+        /* File uploader styling */
         [data-testid="stFileUploader"] {
-            background: #ffffff !important;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 3px solid #1976d2;
+            background: rgba(255, 255, 255, 0.9) !important;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid #dfe6e9;
         }
         
         [data-testid="stFileUploader"] label {
-            color: #0d47a1 !important;
-            font-weight: 800 !important;
-            font-size: 1.3rem !important;
+            color: #2d3436 !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
         }
         
         [data-testid="stFileUploader"] small {
-            color: #212121 !important;
-            font-size: 1.1rem !important;
-            font-weight: 700 !important;
+            color: #636e72 !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
         }
         
-        [data-testid="stFileUploader"] section {
-            background-color: #ffffff !important;
-        }
-        
-        /* All text in main content area - Dark for Visibility */
+        /* All text in main content */
         .main .block-container p,
         .main .block-container li,
         .main .block-container span,
         .main .block-container label {
-            color: #212121 !important;
+            color: #495057 !important;
         }
         
-        /* Markdown headers in main content */
+        /* Markdown headers */
         .main .block-container h1,
         .main .block-container h2 {
-            color: #1565c0 !important;
-            font-weight: 800;
+            color: #667eea !important;
+            font-weight: 700;
         }
         
         .main .block-container h3,
         .main .block-container h4 {
-            color: #0d47a1 !important;
-            font-weight: 700;
+            color: #495057 !important;
+            font-weight: 600;
         }
         
-        /* Expander text */
+        /* Expander */
         [data-testid="stExpander"] {
-            background-color: #ffffff;
-            border-radius: 8px;
-            border: 2px solid #1976d2;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: 1px solid #dfe6e9;
         }
         
-        /* Button styling - Blue Gradient */
+        /* Button styling - Gradient */
         .stDownloadButton button {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white !important;
-            font-weight: 800;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 10px;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
         }
         
         .stDownloadButton button:hover {
-            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
         
-        /* Spinner text */
+        /* Spinner */
         .stSpinner > div {
-            color: #1565c0 !important;
-            font-weight: 700;
-            font-size: 1.2rem;
+            color: #667eea !important;
+            font-weight: 600;
         }
         
         /* Success/Error messages */
         .stSuccess {
-            background-color: #c8e6c9 !important;
-            color: #2e7d32 !important;
-            font-weight: 700;
-            font-size: 1.1rem;
+            background-color: #d4edda !important;
+            color: #155724 !important;
+            font-weight: 600;
+            border-radius: 10px;
         }
         
         .stError {
-            background-color: #ffcdd2 !important;
-            color: #c62828 !important;
-            font-weight: 700;
-            font-size: 1.1rem;
+            background-color: #f8d7da !important;
+            color: #721c24 !important;
+            font-weight: 600;
+            border-radius: 10px;
         }
         
-        /* Column text styling */
+        /* Column text */
         [data-testid="column"] p {
-            color: #212121 !important;
-            font-weight: 700;
+            color: #495057 !important;
+            font-weight: 600;
+        }
+        
+        /* Smooth animations */
+        .info-card, .upload-section, .results-card, .main-header {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         </style>
     """, unsafe_allow_html=True)
     
     
     with st.sidebar:
-        st.markdown('<div style="text-align: center;">', unsafe_allow_html=True)
-        st.image("https://cdn-icons-png.flaticon.com/512/2830/2830284.png", width=100)
-        st.markdown('<h1 style="font-size: 2rem; margin-top: 0.5rem; font-weight: 800;">🧠 CreditCard Intel</h1>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align: center; padding: 1rem 0;">', unsafe_allow_html=True)
+        st.image("https://cdn-icons-png.flaticon.com/512/2830/2830284.png", width=80)
+        st.markdown('<h2 style="font-size: 1.5rem; margin-top: 1rem; font-weight: 800;">🧠 CreditCard Intel</h2>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         st.markdown("---")
         
@@ -357,8 +354,8 @@ def main():
         
         st.markdown("""
             <div class="main-header">
-                <h1>🧠 CREDITCARD INTEL</h1>
-                <p>Smart CreditCard Statement Parser</p>
+                <h1>🧠 CreditCard Intel</h1>
+                <p>Smart Statement Parser Powered by AI</p>
             </div>
         """, unsafe_allow_html=True)
         
@@ -369,13 +366,13 @@ def main():
         col_a, col_b, col_c = st.columns(3)
         with col_a:
             st.markdown("#### 1️⃣ Upload")
-            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">Upload your credit card statement PDF</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">Upload your credit card statement PDF file</p>', unsafe_allow_html=True)
         with col_b:
             st.markdown("#### 2️⃣ Extract")
-            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">AI analyzes and extracts key data</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">AI analyzes and extracts key information</p>', unsafe_allow_html=True)
         with col_c:
             st.markdown("#### 3️⃣ Review")
-            st.markdown('<p style="color: #212121 !important; font-weight: 700; font-size: 1.15rem;">View extracted information instantly</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color: #495057 !important; font-weight: 600; font-size: 1rem; line-height: 1.5;">View and download extracted data instantly</p>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
         
         
@@ -384,8 +381,8 @@ def main():
         
         st.markdown("""
             <div class="upload-instruction">
-                <h4>📄 DRAG & DROP YOUR PDF HERE</h4>
-                <p>or click "Browse files" button below | Max Size: 200MB | PDF Only</p>
+                <h4>📄 Drag & Drop Your PDF Here</h4>
+                <p>or click "Browse files" button below • Max: 200MB • PDF Only</p>
             </div>
         """, unsafe_allow_html=True)
         
@@ -498,9 +495,9 @@ def main():
                 
                 def highlight_status(row):
                     if row['Status'] == "❌ Missing":
-                        return ['background-color: #ffcdd2; color: #c62828; font-weight: 700'] * len(row)
+                        return ['background-color: #fee; color: #c00; font-weight: 600'] * len(row)
                     else:
-                        return ['background-color: #c8e6c9; color: #2e7d32; font-weight: 700'] * len(row)
+                        return ['background-color: #efe; color: #060; font-weight: 600'] * len(row)
                 
                 st.dataframe(
                     df_complete.style.apply(highlight_status, axis=1),
